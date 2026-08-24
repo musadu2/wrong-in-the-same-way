@@ -1,4 +1,4 @@
-# papercool
+# Coverage is not enough: finite-sample bias, not model variance, limits small-data machine-learned potentials
 
 Use this template directory to write the coolest paper on the internet. 
 
