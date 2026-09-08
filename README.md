@@ -1,26 +1,295 @@
-# Coverage is not enough: finite-sample bias, not model variance, limits small-data machine-learned potentials
+# Coverage Is Not Enough: Finite-Sample Bias, Not Model Variance, Limits Small-Data Machine-Learned Potentials
 
-This GitHub repo includes the data analysis and machine-learned interatomic potentials (MLIPs) files and folders. 
+This repository contains the data-processing workflows, training configurations, analysis scripts, and machine-learned interatomic potential (MLIP) files used in:
 
-## Process 
-To reproduce our results, the two folders includes all the necessary files and data. Two steps to track is first preparing the training/validation/testing configurations and training models.
+> **Coverage Is Not Enough: Finite-Sample Bias, Not Model Variance, Limits Small-Data Machine-Learned Potentials**
 
-## Data Analysis: 
-There are couple phases to prepare training/validation/testing configurations:
-  - phase 1: Begin with downloading dftli3ps4.xyz dataset by accessing dft_li3ps4.rtf file which has a Google Drive link to data.
-  - phase 2: Separate your merged data into individual configurations by using Separate_Configurations.ipynb.
-  - phase 3: Convert the configurations into Smooth Overlap of Atomic Positions descriptor by using SOAP_Descriptor_Generator.ipynb. DFT_Li3PS4_outer_average_SOAP_16000.npy file should be saved. We provided it in Data_Analysis folder.
-  - phase 5: Select your data with Farthest Point Sampling by using Data_Selection_Farthest_Point_Sampling.ipynb. After running Data_Selection_Farthest_Point_Sampling.ipynb, there will be bot individual training/validation/testing and merged configuration files. 
+The repository is designed to support **reproduction and validation of the results presented in the manuscript**. It includes the workflows used to prepare the training, validation, and testing datasets and to train the MACE and Allegro MLIPs.
 
-## MLIPs:
-After the data is ready, second step is to train and test MLIPs: 
-  - MACE: We use individual training/validation/testing files for developing MACE models. You can find our MACE hyper parameters inside mace_submit file for each number of training data cases. To validate the reproduced results, we also include training .log files.
-  - Allegro: We use merged training/validation/testing files for developing Allegro models. You can find our Allegro hyper parameters inside training.yaml file for each number of training data cases. To validate the reproduced results, we also include submission and training .out files.
-  
-  
-The phases are tied to issues, which you should track using ZenHub. 
+---
 
-For each phase, you will complete the necessary tasks and carry out the required reviews with your review team. 
-You should work with your review team until everyone believes that all the required elements for the phase are in place.  
-At this point, you can submit the materials to me for review via your repository. 
+## Repository Overview
+
+The reproduction workflow consists of two main stages:
+
+1. **Data Analysis and Data Selection**
+   Prepare the DFT Li$_3$PS$_4$ dataset, generate SOAP descriptors, and construct the training, validation, and testing sets using Farthest Point Sampling (FPS).
+
+2. **MLIP Development and Evaluation**
+   Train and evaluate MACE and Allegro models using the selected datasets and the provided hyperparameters.
+
+A schematic overview of the workflow is:
+
+```text
+DFT Li3PS4 Dataset
+        │
+        ▼
+Separate Configurations
+        │
+        ▼
+SOAP Descriptor Generation
+        │
+        ▼
+Farthest Point Sampling
+        │
+        ▼
+Training / Validation / Testing Sets
+        │
+        ├───────────────┐
+        ▼               ▼
+      MACE           Allegro
+        │               │
+        ▼               ▼
+   Training &        Training &
+    Evaluation        Evaluation
+        │               │
+        └───────┬───────┘
+                ▼
+        Reproduce Results
+```
+
+---
+
+# 1. Data Analysis
+
+The `Data_Analysis` folder contains the notebooks and data required to prepare the DFT Li$_3$PS$_4$ dataset for MLIP training.
+
+## Step 1 — Obtain the DFT Li$_3$PS$_4$ Dataset
+
+The original DFT Li$_3$PS$_4$ dataset is provided as a merged `.xyz` file.
+
+To obtain the dataset:
+
+1. Open `dft_li3ps4.rtf`.
+2. Follow the Google Drive link provided in the file.
+3. Download the DFT Li$_3$PS$_4$ dataset.
+4. Place the downloaded dataset in the appropriate `Data_Analysis` directory.
+
+> **Note:** The dataset is provided externally because of its file size. The repository includes the information necessary to access the dataset.
+
+---
+
+## Step 2 — Separate Configurations
+
+The downloaded dataset contains multiple configurations in a single file.
+
+Use:
+
+```text
+Separate_Configurations.ipynb
+```
+
+to separate the merged dataset into individual configurations.
+
+The resulting configuration files are used as input for SOAP descriptor generation and data selection.
+
+---
+
+## Step 3 — Generate SOAP Descriptors
+
+The molecular and atomic environments are represented using the **Smooth Overlap of Atomic Positions (SOAP)** descriptor.
+
+Run:
+
+```text
+SOAP_Descriptor_Generator.ipynb
+```
+
+This notebook generates the SOAP representation of the DFT Li$_3$PS$_4$ configurations.
+
+The resulting descriptor file is:
+
+```text
+DFT_Li3PS4_outer_average_SOAP_16000.npy
+```
+
+For convenience and reproducibility, this `.npy` file is already provided in the `Data_Analysis` folder.
+
+---
+
+## Step 4 — Select Training, Validation, and Testing Data
+
+The training, validation, and testing configurations are selected using **Farthest Point Sampling (FPS)**.
+
+Run:
+
+```text
+Data_Selection_Farthest_Point_Sampling.ipynb
+```
+
+The notebook performs the data-selection procedure and generates both:
+
+* individual training, validation, and testing configuration files; and
+* merged training/validation/testing configuration files.
+
+These outputs are subsequently used for MACE and Allegro training.
+
+---
+
+# 2. MLIP Development
+
+The `MLIPs` folder contains the model-training workflows and configuration files for **MACE** and **Allegro**.
+
+The two MLIP implementations use slightly different input formats.
+
+---
+
+## MACE
+
+MACE models are trained using **individual training, validation, and testing configuration files**.
+
+For each training-set size, the corresponding `mace_submit` file contains the hyperparameters and training configuration used in the study.
+
+The repository also includes the corresponding training `.log` files. These logs can be used to verify that the reproduced training procedure is consistent with the original calculations.
+
+### MACE reproduction workflow
+
+```text
+FPS-selected configurations
+        │
+        ▼
+Training / Validation / Testing .xyz files
+        │
+        ▼
+mace_submit
+        │
+        ▼
+MACE training
+        │
+        ▼
+Training .log
+        │
+        ▼
+Model evaluation
+```
+
+---
+
+## Allegro
+
+Allegro models are trained using the **merged training, validation, and testing configuration files** generated during the data-selection stage.
+
+For each training-set size, the corresponding `training.yaml` file contains the hyperparameters and training configuration used in the study.
+
+The repository also includes:
+
+* submission files; and
+* training `.out` files.
+
+These files provide the information necessary to reproduce and validate the Allegro training runs.
+
+### Allegro reproduction workflow
+
+```text
+FPS-selected configurations
+        │
+        ▼
+Merged training / validation / testing files
+        │
+        ▼
+training.yaml
+        │
+        ▼
+Allegro training
+        │
+        ▼
+Training .out / submission files
+        │
+        ▼
+Model evaluation
+```
+
+---
+
+# 3. Reproducibility
+
+To reproduce the results, follow the workflow below in order.
+
+### Data Preparation
+
+1. Download the DFT Li$_3$PS$_4$ dataset using `dft_li3ps4.rtf`.
+2. Run `Separate_Configurations.ipynb`.
+3. Run `SOAP_Descriptor_Generator.ipynb`.
+4. Verify that `DFT_Li3PS4_outer_average_SOAP_16000.npy` has been generated, or use the provided file.
+5. Run `Data_Selection_Farthest_Point_Sampling.ipynb`.
+
+### MLIP Training
+
+6. For **MACE**, use the individual training/validation/testing files and the corresponding `mace_submit` file.
+7. For **Allegro**, use the merged configuration files and the corresponding `training.yaml`.
+8. Compare the reproduced training logs and outputs with the provided reference files.
+9. Evaluate the trained models using the provided analysis workflows.
+
+---
+
+# 4. Repository Structure
+
+The repository is organized approximately as follows:
+
+```text
+.
+├── Data_Analysis/
+│   ├── Separate_Configurations.ipynb
+│   ├── SOAP_Descriptor_Generator.ipynb
+│   ├── Data_Selection_Farthest_Point_Sampling.ipynb
+│   ├── DFT_Li3PS4_outer_average_SOAP_16000.npy
+│   └── dft_li3ps4.rtf
+│
+├── MLIPs/
+│   ├── MACE/
+│   │   ├── mace_submit
+│   │   └── *.log
+│   │
+│   └── Allegro/
+│       ├── training.yaml
+│       ├── submission files
+│       └── *.out
+│
+└── README.md
+```
+
+The exact organization may vary depending on the training-set size and computational run.
+
+---
+
+# 5. Data Selection
+
+The primary data-selection strategy reproduced in this repository is **Farthest Point Sampling (FPS)**.
+
+FPS is applied to the SOAP representation of the configurations to select configurations that provide broad coverage of the descriptor space.
+
+The selected configurations are subsequently used to construct the MLIP training, validation, and testing datasets.
+
+The repository is intended to make the complete workflow from **DFT configurations → descriptor representation → data selection → MLIP training → model evaluation** reproducible.
+
+---
+
+# 6. Reference Training Files
+
+To facilitate independent reproduction, the repository includes the files used in the original calculations wherever practical.
+
+These include:
+
+| Model   | Configuration           | Hyperparameters | Training Output           |
+| ------- | ----------------------- | --------------- | ------------------------- |
+| MACE    | Individual `.xyz` files | `mace_submit`   | `.log`                    |
+| Allegro | Merged `.xyz` files     | `training.yaml` | `.out` / submission files |
+
+The provided outputs can be used as reference points when verifying an independent reproduction.
+
+---
+
+# 7. Citation
+
+If you use the data, analysis workflows, or MLIP training files from this repository, please cite the associated manuscript:
+
+**Coverage Is Not Enough: Finite-Sample Bias, Not Model Variance, Limits Small-Data Machine-Learned Potentials**
+
+*Citation information will be added following publication/preprint release.*
+
+---
+
+# 8. Contact
+
+For questions regarding the dataset, analysis workflow, or MLIP training procedure, please refer to the corresponding author or repository maintainers.
 
