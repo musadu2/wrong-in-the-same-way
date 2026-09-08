@@ -1,0 +1,42 @@
+#!/bin/bash
+#SBATCH --mem=128G
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=16
+#SBATCH --partition=gpuA100x4
+#SBATCH --time=6:00:00
+#SBATCH --account=bghc-delta-gpu
+#SBATCH --job-name=Allegro_FPS_150_DFT_Li3PS4
+#SBATCH --gpus-per-node=1
+#SBATCH --gpus-per-task=1
+#SBATCH --gpu-bind=verbose,per_task:1
+
+# Load CUDA
+module unload cudatoolkit
+module load cuda/12.8
+
+# Initialize conda (CRITICAL)
+source /u/musadorukucar/miniconda3/etc/profile.d/conda.sh
+
+# Activate environment
+#conda activate allegro_env
+conda activate allegro_fix_2
+# Debug (optional but recommended)
+which python
+python --version
+
+export NEQUIP_FLOAT32_MODEL_TOL=1
+
+# Run
+echo "[`date`] Starting training script..."
+nequip-train training.yaml
+nequip-train training.yaml
+echo "[`date`] Training script finished"
+# Run
+echo "[`date`] Starting training script..."
+nequip-evaluate \
+  --train-dir results/Allegro_FPS_150_DFT_Li3PS4/run_Allegro_FPS_150_DFT_Li3PS4 \
+  --batch-size 1 \
+  --output FPS_150_DFT_Li3PS4_train_valid_test_samples_merged_predictions.xyz
+echo "[`date`] Training script finished"
+

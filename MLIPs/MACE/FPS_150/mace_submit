@@ -1,0 +1,61 @@
+#!/bin/bash
+#SBATCH --mem=64G
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=16
+#SBATCH --partition=gpuA100x4
+#SBATCH --time=6:00:00
+#SBATCH --account=bghc-delta-gpu
+#SBATCH --job-name=MACE_FPS_150_DFT_Li3PS4
+#SBATCH --gpus-per-node=1
+#SBATCH --gpus-per-task=1
+#SBATCH --gpu-bind=verbose,per_task:1
+
+# Load the required modules
+module unload cudatoolkit
+module load cuda/12.8
+# Deactivate and activate conda environment
+
+#conda deactivate
+#conda init
+#source activate
+conda activate base
+
+# Run the training script
+echo "[`date`] Starting training script..."
+python run_train.py \
+       --energy_key="energy" \
+       --forces_key="forces" \
+       --name="MACE_FPS_150_DFT_Li3PS4" \
+       --train_file="/work/nvme/bghc/musadorukucar/Li3PS4/FPS_150/FPS_150_DFT_Li3PS4_training_samples.xyz" \
+       --valid_file="/work/nvme/bghc/musadorukucar/Li3PS4/FPS_150/FPS_150_DFT_Li3PS4_validation_samples.xyz" \
+       --test_file="/work/nvme/bghc/musadorukucar/Li3PS4/FPS_150/FPS_150_DFT_Li3PS4_testing_samples.xyz" \
+       --E0s="average" \
+       --model="MACE" \
+       --hidden_irreps='64x0e + 64x1o' \
+       --r_max=5.0 \
+       --default_dtype='float32' \
+       --batch_size=4 \
+       --valid_batch_size=4 \
+       --max_num_epochs=500 \
+       --energy_weight=1.0 \
+       --forces_weight=20.0 \
+       --ema \
+       --ema_decay=0.99 \
+       --amsgrad \
+       --restart_latest \
+       --device=cuda \
+       > train.out 2> train.err
+echo "[`date`] Training script finished"
+
+
+# Run the training script
+echo "[`date`] Starting training script..."
+mace_eval_configs \
+    --model MACE_FPS_150_DFT_Li3PS4.model \
+    --configs FPS_150_DFT_Li3PS4_testing_samples.xyz \
+    --output FPS_150_DFT_Li3PS4_testing_samples_predictions.xyz \
+    --default_dtype='float32' \
+    --batch_size=4 \
+    --device cuda
+echo "[`date`] Training script finished"
