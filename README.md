@@ -13,7 +13,7 @@ The repository is designed to support **reproduction and validation of the resul
 The reproduction workflow consists of two main stages:
 
 1. **Data Analysis and Data Selection**
-   Prepare the DFT Li3PS4 dataset, generate SOAP descriptors, and construct the training, validation, and testing sets using Farthest Point Sampling (FPS).
+   Prepare the [DFT Li3PS4 dataset](https://drive.google.com/file/d/1T54OYLcX9Jqu2RHZITTzTIICzTzYKoAr/view?usp=share_link), generate SOAP descriptors, and construct the training, validation, and testing sets using Farthest Point Sampling (FPS).
 
 2. **MLIP Development and Evaluation**
    Train and evaluate MACE and Allegro models using the selected datasets and the provided hyperparameters.
