@@ -167,11 +167,6 @@ conda env create -f mace_conda_environment.yml
 
 Activate the resulting environment before running MACE.
 
-If the exported environment retains the original environment name:
-
-```bash
-conda activate <environment-name>
-```
 
 ### MACE reproduction workflow
 
