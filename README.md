@@ -52,7 +52,7 @@ Training / Validation / Testing Sets
 
 # 1. Data Analysis
 
-The `Data_Analysis` folder contains the notebooks and data required to prepare the DFT Li$_3$PS$_4$ dataset for MLIP training.
+The `Data_Analysis` folder contains the notebooks and data required to prepare the DFT Li3PS4 dataset for MLIP training.
 
 ## Step 1 — Obtain the DFT Li$_3$PS$_4$ Dataset
 
