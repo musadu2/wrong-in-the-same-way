@@ -62,7 +62,7 @@ To obtain the dataset:
 
 1. Open `dft_li3ps4.rtf`.
 2. Follow the Google Drive link provided in the file.
-3. Download the DFT Li$_3$PS$_4$ dataset.
+3. Download the DFT Li3PS4 dataset.
 4. Place the downloaded dataset in the appropriate `Data_Analysis` directory.
 
 > **Note:** The dataset is provided externally because of its file size. The repository includes the information necessary to access the dataset.
