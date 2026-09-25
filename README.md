@@ -1,4 +1,4 @@
-# Coverage Is Not Enough: Finite-Sample Bias, Not Model Variance, Limits Small-Data Machine-Learned Potentials
+# Wrong in the same way: Finite-Sample Bias, Not Model Variance, Limits Small-Data Machine-Learned Potentials
 
 This repository contains the data-processing workflows, training configurations, analysis scripts, and machine-learned interatomic potential (MLIP) files used in:
 
