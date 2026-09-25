@@ -8,11 +8,8 @@ The repository is intended to support independent reproduction and validation of
 
 The workflow covers:
 
-1. preparation of the DFT Li$_3$PS$_4$ dataset;
-2. generation of SOAP descriptors;
-3. training-, validation-, and test-set construction using Farthest Point Sampling (FPS);
-4. training of MACE and Allegro MLIPs; and
-5. evaluation of the resulting models.
+1. preparation of the DFT Li3PS4 training-, validation-, and test-set construction using Farthest Point Sampling (FPS);
+2. training of MACE and Allegro MLIPs, and evaluation of the resulting models.
 
 ---
 
