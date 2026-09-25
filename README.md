@@ -54,9 +54,9 @@ Training / Validation / Testing Sets
 
 The `Data_Analysis` folder contains the notebooks and data required to prepare the DFT Li3PS4 dataset for MLIP training.
 
-## Step 1 — Obtain the DFT Li$_3$PS$_4$ Dataset
+## Step 1 — Obtain the DFT Li3PS4 Dataset
 
-The original DFT Li$_3$PS$_4$ dataset is provided as a merged `.xyz` file.
+The original DFT Li3PS4 dataset is provided as a merged `.xyz` file.
 
 To obtain the dataset:
 
