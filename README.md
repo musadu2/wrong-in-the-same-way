@@ -306,13 +306,13 @@ Because GPU training can exhibit platform-dependent numerical differences, exact
 │   ├── MACE/
 │   │   ├── mace_submit
 │   │   ├── *.log
-│   │   └── mace_models_and_conda_environment
+│   │   └── mace_models_and_conda_environment.rtf
 │   │
 │   └── Allegro/
 │       ├── training.yaml
 │       ├── submission files
 │       ├── *.out
-│       └── allegro_models_and_conda_environment
+│       └── allegro_models_and_conda_environment.rtf
 │
 └── README.md
 ```
@@ -361,18 +361,6 @@ These files can be used to compare independently reproduced calculations with th
 Software environments used for the original calculations are provided separately for MACE and Allegro.
 
 These environment files record the package versions used for model development and should be used when attempting to reproduce the original calculations.
-
-For additional diagnostics, users may record:
-
-```bash
-python --version
-conda list
-nvidia-smi
-```
-
-when running reproduced calculations on a different computing system.
-
----
 
 # 8. Citation
 
