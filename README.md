@@ -66,7 +66,7 @@ Training / validation / testing sets
 
 # 1. Data analysis
 
-The `Data_Analysis/` directory contains the notebooks and intermediate data required to prepare the DFT Li$_3$PS$_4$ dataset for MLIP training.
+The `Data_Analysis/` directory contains the notebooks and intermediate data required to prepare the DFT Li3PS4 dataset for MLIP training.
 
 ## Step 1 — Obtain the DFT Li3PS4 dataset
 
@@ -162,7 +162,7 @@ The associated conda-environment file records the software packages and package 
 From the provided environment file, create a conda environment using:
 
 ```bash
-conda env create -f environment.yml
+conda env create -f mace_conda_environment.yml
 ```
 
 Activate the resulting environment before running MACE.
