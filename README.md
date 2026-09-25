@@ -8,8 +8,8 @@ The repository is intended to support independent reproduction and validation of
 
 The workflow covers:
 
-1. preparation of the DFT Li3PS4 training-, validation-, and test-set construction using Farthest Point Sampling (FPS);
-2. training of MACE and Allegro MLIPs, and evaluation of the resulting models.
+1. preparation of the DFT Li3PS4 training-, validation-, and test-set construction using Farthest Point Sampling (FPS)
+2. training and evaluation of MACE and Allegro models.
 
 ---
 
