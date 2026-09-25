@@ -46,7 +46,7 @@ A schematic overview of the workflow is:
                                                    └───────┬───────┘
                                                            ▼
                                                    Reproduce Results
-      ```
+```
 
 ---
 
