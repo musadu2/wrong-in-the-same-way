@@ -128,7 +128,7 @@ These outputs are subsequently used for MACE and Allegro training.
 
 # 2. MLIP Development
 
-The `MLIPs` folder contains the model-training workflows, configuration files and links for [**MACE**](https://drive.google.com/drive/folders/1fYCIbwP6Xih4tpCdqGmsMj3UfixmqFyc?usp=sharing) and [**Allegro**](https://drive.google.com/drive/folders/16JN3hC0vZ4a83jSgMyYMf1hmc_wHyLcD?usp=sharing) models and conda environments.
+The `MLIPs` folder contains the model-training workflows, configuration files and links for **MACE** and **Allegro** models and conda environments.
 
 The two MLIP implementations use slightly different input formats.
 
