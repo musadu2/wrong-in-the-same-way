@@ -283,7 +283,7 @@ The provided outputs can be used as reference points when verifying an independe
 
 If you use the data, analysis workflows, or MLIP training files from this repository, please cite the associated manuscript:
 
-**Coverage Is Not Enough: Finite-Sample Bias, Not Model Variance, Limits Small-Data Machine-Learned Potentials**
+**Wrong in the same way: finite-sample bias, not model variance, limits small-data machine-learned potentials**
 
 *Citation information will be added following publication/preprint release.*
 
