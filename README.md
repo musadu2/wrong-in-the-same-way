@@ -21,32 +21,32 @@ The reproduction workflow consists of two main stages:
 A schematic overview of the workflow is:
 
 ```text
-                                    DFT Li3PS4 Dataset
-                                             │
-                                             ▼
-                                    Separate Configurations
-                                             │
-                                             ▼
-                                    SOAP Descriptor Generation
-                                             │
-                                             ▼
-                                    Farthest Point Sampling
-                                             │
-                                             ▼
-                                    Training / Validation / Testing Sets
-                                             │
-                                             ├───────────────┐
-                                             ▼               ▼
-                                             MACE           Allegro
-                                             │               │
-                                             ▼               ▼
-                                             Training &        Training &
-                                             Evaluation        Evaluation
-                                             │               │
-                                             └───────┬───────┘
-                                                     ▼
-                                             Reproduce Results
-```
+                                          DFT Li3PS4 Dataset
+                                                   │
+                                                   ▼
+                                          Separate Configurations
+                                                   │
+                                                   ▼
+                                          SOAP Descriptor Generation
+                                                   │
+                                                   ▼
+                                          Farthest Point Sampling
+                                                   │
+                                                   ▼
+                                          Training / Validation / Testing Sets
+                                                   │
+                                                   ├───────────────┐
+                                                   ▼               ▼
+                                                   MACE           Allegro
+                                                   │               │
+                                                   ▼               ▼
+                                                   Training &        Training &
+                                                   Evaluation        Evaluation
+                                                   │               │
+                                                   └───────┬───────┘
+                                                           ▼
+                                                   Reproduce Results
+      ```
 
 ---
 
