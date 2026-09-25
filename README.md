@@ -277,10 +277,10 @@ To facilitate independent reproduction, the repository includes the files used i
 
 These include:
 
-| Model   | Configuration           | Hyperparameters | Training Output           | Trained Models|           
-| ------- | ----------------------- | --------------- | ------------------------- |---------------|
-| MACE    | Individual `.xyz` files | `mace_submit`   | `.log`                    | `.model`      |
-| Allegro | Merged `.xyz` files     | `training.yaml` | `.out` / submission files | `.pth`        |
+| Model   | Configuration           | Hyperparameters | Training Output  | Trained Models|           
+| ------- | ----------------------- | --------------- | ---------------- |---------------|
+| MACE    | Individual `.xyz` files | `mace_submit`   | `.log`           | `.model`      |
+| Allegro | Merged `.xyz` files     | `training.yaml` | `.out`.          | `.pth`        |
 
 The provided outputs can be used as reference points when verifying an independent reproduction.
 
