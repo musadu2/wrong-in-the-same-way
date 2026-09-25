@@ -16,7 +16,7 @@ The reproduction workflow consists of two main stages:
    Prepare the [DFT Li3PS4 dataset](https://drive.google.com/file/d/1T54OYLcX9Jqu2RHZITTzTIICzTzYKoAr/view?usp=share_link), generate SOAP descriptors, and construct the training, validation, and testing sets using Farthest Point Sampling (FPS).
 
 2. **MLIP Development and Evaluation**
-   Train and evaluate MACE and Allegro models using the selected datasets and the provided hyperparameters.
+   Train and evaluate [MACE](https://drive.google.com/drive/folders/1fYCIbwP6Xih4tpCdqGmsMj3UfixmqFyc?usp=sharing) and [Allegro models](https://drive.google.com/drive/folders/16JN3hC0vZ4a83jSgMyYMf1hmc_wHyLcD?usp=sharing) using the selected datasets and the provided hyperparameters.
 
 A schematic overview of the workflow is:
 
