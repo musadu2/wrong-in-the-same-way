@@ -62,7 +62,7 @@ To obtain the dataset:
 
 1. Open `dft_li3ps4.rtf`.
 2. Follow the Google Drive link provided in the file.
-3. Download the DFT Li3PS4 dataset.
+3. Download the [DFT Li3PS4 dataset](https://drive.google.com/file/d/1T54OYLcX9Jqu2RHZITTzTIICzTzYKoAr/view?usp=share_link).
 4. Place the downloaded dataset in the appropriate `Data_Analysis` directory.
 
 > **Note:** The dataset is provided externally because of its file size. The repository includes the information necessary to access the dataset.
@@ -128,7 +128,7 @@ These outputs are subsequently used for MACE and Allegro training.
 
 # 2. MLIP Development
 
-The `MLIPs` folder contains the model-training workflows and configuration files for **MACE** and **Allegro**.
+The `MLIPs` folder contains the model-training workflows, configuration files and links for [**MACE**](https://drive.google.com/drive/folders/1fYCIbwP6Xih4tpCdqGmsMj3UfixmqFyc?usp=sharing) and [**Allegro**](https://drive.google.com/drive/folders/16JN3hC0vZ4a83jSgMyYMf1hmc_wHyLcD?usp=sharing) models and conda environments.
 
 The two MLIP implementations use slightly different input formats.
 
@@ -140,7 +140,9 @@ MACE models are trained using **individual training, validation, and testing con
 
 For each training-set size, the corresponding `mace_submit` file contains the hyperparameters and training configuration used in the study.
 
-The repository also includes the corresponding training `.log` files. These logs can be used to verify that the reproduced training procedure is consistent with the original calculations.
+There are corresponding training `.log` files. These logs can be used to verify that the reproduced training procedure is consistent with the original calculations.
+
+We also include Google Drive link to access our already trained [MACE models](https://drive.google.com/drive/folders/1fYCIbwP6Xih4tpCdqGmsMj3UfixmqFyc?usp=sharing) at ND={15, 50, 150 and 1500}. You can find the conda environments which show the version of MACE that we used to develop our models.
 
 ### MACE reproduction workflow
 
@@ -177,6 +179,8 @@ The repository also includes:
 * training `.out` files.
 
 These files provide the information necessary to reproduce and validate the Allegro training runs.
+
+We also include Google Drive link to access our already trained [Allegro models](https://drive.google.com/drive/folders/16JN3hC0vZ4a83jSgMyYMf1hmc_wHyLcD?usp=sharing) at ND={15, 50, 150 and 1500}. You can find the conda environments which show the version of MACE that we used to develop our models.
 
 ### Allegro reproduction workflow
 
@@ -219,6 +223,7 @@ To reproduce the results, follow the workflow below in order.
 7. For **Allegro**, use the merged configuration files and the corresponding `training.yaml`.
 8. Compare the reproduced training logs and outputs with the provided reference files.
 9. Evaluate the trained models using the provided analysis workflows.
+10. Compare the reproduced models with the provided reference models.
 
 ---
 
@@ -239,11 +244,13 @@ The repository is organized approximately as follows:
 │   ├── MACE/
 │   │   ├── mace_submit
 │   │   └── *.log
+|   |   └── mace_models_and_conda_environment 
 │   │
 │   └── Allegro/
 │       ├── training.yaml
 │       ├── submission files
 │       └── *.out
+|   |   └── allegro_models_and_conda_environment 
 │
 └── README.md
 ```
@@ -270,10 +277,10 @@ To facilitate independent reproduction, the repository includes the files used i
 
 These include:
 
-| Model   | Configuration           | Hyperparameters | Training Output           |
-| ------- | ----------------------- | --------------- | ------------------------- |
-| MACE    | Individual `.xyz` files | `mace_submit`   | `.log`                    |
-| Allegro | Merged `.xyz` files     | `training.yaml` | `.out` / submission files |
+| Model   | Configuration           | Hyperparameters | Training Output           | Trained Models|           
+| ------- | ----------------------- | --------------- | ------------------------- |---------------|
+| MACE    | Individual `.xyz` files | `mace_submit`   | `.log`                    | `.model`      |
+| Allegro | Merged `.xyz` files     | `training.yaml` | `.out` / submission files | `.pth`        |
 
 The provided outputs can be used as reference points when verifying an independent reproduction.
 
