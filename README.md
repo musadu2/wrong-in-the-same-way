@@ -35,17 +35,17 @@ A schematic overview of the workflow is:
                      ▼
             Training / Validation / Testing Sets
                      │
-            ├───────────────┐
-            ▼               ▼
-            MACE           Allegro
-            │               │
-            ▼               ▼
-            Training &        Training &
-            Evaluation        Evaluation
-            │               │
-            └───────┬───────┘
-                    ▼
-            Reproduce Results
+                     ├───────────────┐
+                     ▼               ▼
+                     MACE           Allegro
+                     │               │
+                     ▼               ▼
+                     Training &        Training &
+                     Evaluation        Evaluation
+                     │               │
+                     └───────┬───────┘
+                             ▼
+                     Reproduce Results
 ```
 
 ---
