@@ -95,7 +95,7 @@ Run:
 SOAP_Descriptor_Generator.ipynb
 ```
 
-This notebook generates the SOAP representation of the DFT Li$_3$PS$_4$ configurations.
+This notebook generates the SOAP representation of the DFT Li3PS4 configurations.
 
 The resulting descriptor file is:
 
