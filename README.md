@@ -225,7 +225,7 @@ The associated conda-environment file records the NequIP/Allegro software enviro
 Create the environment using:
 
 ```bash
-conda env create -f environment.yml
+conda env create -f allegro_environment.yml
 ```
 
 and activate the resulting environment before training.
