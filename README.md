@@ -207,7 +207,7 @@ To reproduce the results, follow the workflow below in order.
 
 ### Data Preparation
 
-1. Download the DFT Li$_3$PS$_4$ dataset using `dft_li3ps4.rtf`.
+1. Download the DFT Li3PS4 dataset using `dft_li3ps4.rtf`.
 2. Run `Separate_Configurations.ipynb`.
 3. Run `SOAP_Descriptor_Generator.ipynb`.
 4. Verify that `DFT_Li3PS4_outer_average_SOAP_16000.npy` has been generated, or use the provided file.
