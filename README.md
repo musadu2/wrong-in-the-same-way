@@ -148,7 +148,7 @@ Reference `.log` files from the original calculations are also included. These o
 Reference trained MACE models are available for:
 
 ```text
-ND = 15, 50, 150, 1500
+ND = 15, 50, 150, 1500, 13000
 ```
 
 at:
@@ -211,7 +211,7 @@ The repository additionally contains the corresponding:
 Reference trained Allegro models are available for:
 
 ```text
-ND = 15, 50, 150, 1500
+ND = 15, 50, 150, 1500, 13000
 ```
 
 at:
