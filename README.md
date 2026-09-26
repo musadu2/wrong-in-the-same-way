@@ -19,7 +19,7 @@ The reproduction workflow consists of two main stages.
 
 ### 1. Data analysis and data selection
 
-The [DFT Li3PS4 dataset](https://drive.google.com/file/d/1T54OYLcX9Jqu2RHZITTzTIICzTzYKoAr/view?usp=share_link) is processed into individual configurations, represented using Smooth Overlap of Atomic Positions (SOAP) descriptors, and partitioned into training, validation, and testing datasets using Farthest Point Sampling (FPS).
+The [DFT Li3PS4 dataset](https://drive.google.com/file/d/1T54OYLcX9Jqu2RHZITTzTIICzTzYKoAr/view?usp=share_link) is processed into individual configurations, represented using Smooth Overlap of Atomic Positions (SOAP) descriptors, and partitioned into training, validation, and testing sets using Farthest Point Sampling (FPS).
 
 ### 2. MLIP development and evaluation
 
