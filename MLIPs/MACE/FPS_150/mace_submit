@@ -5,7 +5,7 @@
 #SBATCH --cpus-per-task=16
 #SBATCH --partition=gpuA100x4
 #SBATCH --time=6:00:00
-#SBATCH --account=bghc-delta-gpu
+#SBATCH --account=ACCOUNTNAME
 #SBATCH --job-name=MACE_FPS_150_DFT_Li3PS4
 #SBATCH --gpus-per-node=1
 #SBATCH --gpus-per-task=1
